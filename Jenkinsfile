@@ -36,6 +36,7 @@ podTemplate(label: label, containers: [
         sh "ls "
         sh "ls /home/jenkins/.kube"
         sh "cat /home/jenkins/.kube/config"
+        sh "id"
         sh "kubectl get pod"
       }
     }
