@@ -8,7 +8,8 @@ podTemplate(label: label, containers: [
 ], volumes: [
   hostPathVolume(mountPath: '/root/.m2', hostPath: '/var/run/m2'),
   hostPathVolume(mountPath: '/home/jenkins/.kube', hostPath: '/root/.kube'),
-  hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock')
+  hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock'),
+  hostPathVolume(mountPath: '/root/.kube', hostPath: '/root/.kube')
 ]) {
   node(label) {
     def myRepo = checkout scm
@@ -37,6 +38,7 @@ podTemplate(label: label, containers: [
         sh "ls /home/jenkins/.kube"
         sh "cat /home/jenkins/.kube/config"
         sh "id"
+        sh "ls /root/.kube"
         sh "kubectl get pod"
       }
     }
