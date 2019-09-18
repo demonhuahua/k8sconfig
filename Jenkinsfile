@@ -31,7 +31,9 @@ podTemplate(label: label, containers: [
     stage('运行 Kubectl') {
       container('kubectl') {
         echo "查看 K8S 集群 Pod 列表"
-        sh "kubectl get pods"
+        sh "ls"
+        sh "pwd"
+        sh "/home/jenkins/.kube"
       }
     }
     stage('运行 Helm') {
