@@ -46,6 +46,7 @@ podTemplate(label: label, containers: [
       container('helm') {
         echo "查看 Helm Release 列表"
         sh "echo helm list"
+        sh "helm list"
       }
     }
   }
